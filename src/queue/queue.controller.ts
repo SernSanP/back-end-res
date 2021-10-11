@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreateQueueDto } from './dto/createQueue.dto';
 import { CreateQueueDineInDto } from './dto/createQueueDineIn.dto';
 import { CreateQueueTakeOutDto } from './dto/createQueueTakeOut.dto';
@@ -39,4 +39,10 @@ export class QueueController {
     resetQueue() {
         return this.queueService.resetQueue()
     }
+
+    // @Get()
+    // getQueueData(): Promise<Queue> {
+    //     return this.queueService.getQueueData()
+    // }
+
 }

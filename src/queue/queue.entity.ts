@@ -1,5 +1,6 @@
 import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Table } from 'src/table/table.entity';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Queue {
@@ -33,4 +34,8 @@ export class Queue {
   @IsString()
   @IsOptional()
   delivery_by: string
+
+  @ManyToOne(() => Table, table => table.queue)
+  @JoinColumn({ name: 'table_id' })
+  table: Table;
 }

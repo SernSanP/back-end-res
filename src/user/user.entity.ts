@@ -1,9 +1,11 @@
 import { IsNotEmpty, IsString } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryColumn({ unique: true })
+  @IsString()
+  @IsNotEmpty()
   id: string;
 
   @Column()

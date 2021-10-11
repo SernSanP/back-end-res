@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CreateTableDto } from './dto/createTable.dto';
 import { Table } from './table.entity';
 import { TableService } from './table.service';
@@ -10,5 +10,10 @@ export class TableController {
     @Post()
     createTable(@Body() createTableDto: CreateTableDto): Promise<Table> {
         return this.tableService.createTable(createTableDto);
+    }
+
+    @Get()
+    getTableData(): Promise<Table[]> {
+        return this.tableService.getTableData()
     }
 }

@@ -14,4 +14,8 @@ export class TableService {
     createTable(createTableDto: CreateTableDto): Promise<Table> {
         return this.tableRepository.createTable(createTableDto)
     }
+
+    getTableData(): Promise<Table[]> {
+        return this.tableRepository.getTableData()
+    }
 }

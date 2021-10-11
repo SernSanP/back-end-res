@@ -12,4 +12,10 @@ export class TableRepository extends Repository<Table> {
         await this.save(table)
         return table
     }
+
+    async getTableData(): Promise<Table[]> {
+        return this.find({
+            relations: ['queue'],
+        });
+    }
 }

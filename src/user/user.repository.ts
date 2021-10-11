@@ -5,10 +5,11 @@ import { User } from "./user.entity";
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
     async createUser(createUserDto: CreateUserDto): Promise<User> {
-        const { role, name } = createUserDto
+        const { role, name, id } = createUserDto
         const user = this.create({
             role,
-            name
+            name,
+            id
         })
         await this.save(user)
         return user
