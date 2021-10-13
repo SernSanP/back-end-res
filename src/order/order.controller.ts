@@ -1,9 +1,10 @@
-import { Body, Controller, Delete, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreateOrderDto } from './dto/createOrder.dto';
 import { UpdateOrderEditDto } from './dto/updateOrderEdit.dto';
 import { UpdateOrderStatusDto } from './dto/updateOrderStatus.dto';
 import { Order } from './order.entity';
 import { OrderService } from './order.service';
+import { menu } from './menu'
 
 @Controller('order')
 export class OrderController {
@@ -27,5 +28,10 @@ export class OrderController {
     @Delete('/delete/:id')
     deleteOrder(@Param('id') id: string) {
         return this.orderService.deleteOrder(id)
+    }
+
+    @Get('/menu')
+    getMenu() {
+        return menu
     }
 }

@@ -14,6 +14,7 @@ export class TableController {
 
     @Get()
     getTableData(): Promise<Table[]> {
+        console.log('get table')
         return this.tableService.getTableData()
     }
 }

@@ -1,12 +1,12 @@
 import { IsNotEmpty, IsString } from "class-validator";
 
-export class CreateQueueDto {
+export class CreateQueueDeliveryDto {
+    @IsNotEmpty()
+    @IsString()
+    delivery_by: string
+
     @IsNotEmpty()
     @IsString()
     queue_group: string
 
-    @IsNotEmpty()
-    @IsString()
-    order_method: string
 }
-

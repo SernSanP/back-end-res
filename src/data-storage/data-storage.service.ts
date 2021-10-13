@@ -4,6 +4,7 @@ import { CreateDataStorageDto } from './dto/createDataStorage.dto';
 import { EditDataStorageDto } from './dto/editDataStorage.dto';
 import { DataStorage } from './data-storage.entity';
 import { DataStorageRepository } from './data-storage.repository';
+import { GetDataStorageDto } from './dto/getDataStorage.dto';
 
 @Injectable()
 export class DataStorageService {
@@ -18,5 +19,9 @@ export class DataStorageService {
 
     editDataStorage(@Body() editDataStorageDto: EditDataStorageDto): Promise<DataStorage> {
         return this.dataStorageRepository.editDataStorage(editDataStorageDto)
+    }
+
+    getDataStorage(@Body() getDataStorageDto: GetDataStorageDto): Promise<DataStorage> {
+        return this.dataStorageRepository.getDataStorage(getDataStorageDto)
     }
 }

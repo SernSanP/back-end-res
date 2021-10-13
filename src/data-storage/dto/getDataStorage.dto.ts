@@ -1,8 +1,7 @@
 import { IsNotEmpty, IsString } from "class-validator";
 
-export class CreateQueueTakeOutDto {
+export class GetDataStorageDto {
     @IsNotEmpty()
     @IsString()
-    queue_group: string
-
+    name: string
 }

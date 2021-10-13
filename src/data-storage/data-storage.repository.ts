@@ -2,6 +2,7 @@ import { EntityRepository, Repository } from "typeorm";
 import { CreateDataStorageDto } from "./dto/createDataStorage.dto";
 import { DataStorage } from "./data-storage.entity";
 import { EditDataStorageDto } from "./dto/editDataStorage.dto";
+import { GetDataStorageDto } from "./dto/getDataStorage.dto";
 
 @EntityRepository(DataStorage)
 export class DataStorageRepository extends Repository<DataStorage> {
@@ -23,5 +24,9 @@ export class DataStorageRepository extends Repository<DataStorage> {
         return data_storage
     }
 
-
+    async getDataStorage(getDataStorageDto: GetDataStorageDto): Promise<DataStorage> {
+        const { name } = getDataStorageDto
+        const data_storage = await this.findOne({ where: { name: name } })
+        return data_storage
+    }
 }

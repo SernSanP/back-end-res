@@ -33,9 +33,10 @@ export class Queue {
   @Column({ nullable: true })
   @IsString()
   @IsOptional()
-  delivery_by: string
+  order_method: string
 
   @ManyToOne(() => Table, table => table.queue)
   @JoinColumn({ name: 'table_id' })
   table: Table;
+
 }
